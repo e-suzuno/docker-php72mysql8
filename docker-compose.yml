@@ -1,0 +1,38 @@
+version: "3"
+services:
+
+  db:
+    container_name: docker-php72mysql8-mysql
+    image: "mysql:8.0.11"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db/mysql-confd:/etc/mysql/conf.d
+      - ./docker/db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
+      - mysql-db:/var/lib/mysql
+
+  redis:
+    container_name: docker-php72mysql8-redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  web01:
+    container_name: docker-php72mysql8-web01
+    build:
+      context: ./docker/web-01/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - "db"
+      - "redis:redis"
+    volumes:
+      - ./src/:/var/www/
+
+volumes:
+  mysql-db:
