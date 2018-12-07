@@ -1,5 +1,6 @@
 
 
+
 # docekrテンプレート
 Apache＋php＋mysqlを用意
 
@@ -18,7 +19,7 @@ Apache＋php＋mysqlを用意
 ## ディレクトリ構成
 
 ```
-mgcs/
+/
 　├ docker/
 　│　├ db/
 　│　└ web-01/
