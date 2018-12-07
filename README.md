@@ -74,9 +74,3 @@ docker-compose up -d
 docker-compose down
 ```
 
-### コンテナ内でコマンドを実行する方法
-
-```
-docker exec -it [コンテナ名] bash -c "cd /var/www/mgcs/ && ~"
-```
-
