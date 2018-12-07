@@ -10,7 +10,6 @@ Apache＋php＋mysqlを用意
 | --- | ---|
 | php | 7.2.* |
 | MySQL | 8.0.* |
-| Laravel | 5.6.* |
 | WEB 文字コード | UTF-8 |
 | MySQL 文字コード | utf8mb4_general_ci |
 
